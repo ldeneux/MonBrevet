@@ -1,4 +1,6 @@
 import { Lecon } from "@/lib/types";
+import { getIllustration } from "@/lib/illustrationMap";
+import { ArrowMarkers } from "./illustrations";
 
 function renderInline(text: string, keyPrefix: string) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -29,18 +31,27 @@ function renderBody(body: string) {
   });
 }
 
-export default function CoursComplet({ lecons }: { lecons: Lecon[] }) {
+export default function CoursComplet({ lecons, moduleId }: { lecons: Lecon[]; moduleId: string }) {
   if (lecons.length === 0) {
     return <p className="loading">Le cours complet de ce module arrive bientôt.</p>;
   }
   return (
     <div>
-      {lecons.map((l) => (
-        <div className="lesson-section" key={l.id}>
-          <h2>{l.title}</h2>
-          <div className="lesson-body">{renderBody(l.body)}</div>
-        </div>
-      ))}
+      <ArrowMarkers />
+      {lecons.map((l) => {
+        const Illustration = getIllustration(moduleId, l.title);
+        return (
+          <div className="lesson-section" key={l.id}>
+            <h2>{l.title}</h2>
+            {Illustration && (
+              <div className="lesson-illustration">
+                <Illustration />
+              </div>
+            )}
+            <div className="lesson-body">{renderBody(l.body)}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

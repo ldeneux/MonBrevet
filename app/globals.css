@@ -250,6 +250,14 @@ a {
   color: var(--brand);
   margin: 0 0 12px;
 }
+.lesson-illustration {
+  background: #fbfcfe;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+  max-width: 420px;
+}
 .lesson-body p {
   margin: 0 0 14px;
   line-height: 1.75;

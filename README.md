@@ -1,11 +1,11 @@
-# Prépa Brevet — Maths (2026)
+# Prépa Brevet — Maths & Sciences (2026)
 
 Appli de révision/entraînement pour le brevet des collèges.
-Next.js (App Router) + Supabase. Module Maths complet (Automatismes,
+Next.js (App Router) + Supabase. Modules complets : Maths (Automatismes,
 Nombres et calculs, Géométrie, Fonctions et proportionnalité,
-Statistiques et probabilités, Algorithmique). Les autres matières
-(Français, Histoire-Géo-EMC, Sciences) sont déjà présentes dans le
-menu, prêtes à recevoir leurs modules sur le même modèle.
+Statistiques et probabilités, Algorithmique) et Sciences (Physique-Chimie,
+SVT, Technologie — 11 modules). Français et Histoire-Géo-EMC sont déjà
+présents dans le menu, prêts à recevoir leurs modules sur le même modèle.
 
 Aucune authentification par email/mot de passe : chaque visiteur reçoit
 automatiquement une session anonyme (Supabase Auth), ce qui permet de
@@ -25,10 +25,15 @@ Chaque module a 4 onglets :
 2. Colle le contenu de `supabase/schema.sql` et clique **Run**.
    Cela crée toutes les tables, active la sécurité (RLS), et insère
    le contenu du module Maths.
-3. Va dans **Authentication → Providers → Anonymous Sign-Ins** et
+3. Nouvelle requête → colle le contenu de `supabase/sciences.sql` et
+   clique **Run**. Ce script est additif (il ne touche pas aux Maths) :
+   il insère les 11 modules de Sciences (Physique-Chimie, SVT,
+   Technologie), chacun avec son cours complet, sa synthèse en
+   couleur, ses exemples et son quiz.
+4. Va dans **Authentication → Providers → Anonymous Sign-Ins** et
    active l'option (elle est désactivée par défaut). C'est ce qui
    permet à l'appli de créer une session sans email ni mot de passe.
-4. Récupère tes clés dans **Project Settings → API** :
+5. Récupère tes clés dans **Project Settings → API** :
    - `Project URL`
    - `anon public` key
 
@@ -60,12 +65,11 @@ L'appli tourne sur http://localhost:3000
 
 ## 4. Ajouter les prochaines matières
 
-Pour ajouter un module (Français, Histoire-Géo-EMC, Sciences...), il
-suffit d'insérer des lignes dans les tables `modules`, `lecons`,
-`cours_sections`, `examples` et `quiz_questions` — aucune modification
-de code n'est nécessaire, l'interface est entièrement pilotée par les
-données. Un exemple complet de ce format se trouve dans
-`supabase/schema.sql` pour le module Maths.
+Pour ajouter un module (Français...), il suffit d'insérer des lignes
+dans les tables `modules`, `lecons`, `cours_sections`, `examples` et
+`quiz_questions` — aucune modification de code n'est nécessaire,
+l'interface est entièrement pilotée par les données. `supabase/sciences.sql`
+est un exemple complet de ce format pour toute une matière (11 modules).
 
 Pour les sujets d'annales (examens complets), la table `annales` est
 prête à recevoir un titre, une année et un lien vers un PDF stocké

@@ -59,7 +59,7 @@ export default function ModuleContent({
         </button>
       </div>
 
-      {tab === "cours" && <CoursComplet lecons={lecons} />}
+      {tab === "cours" && <CoursComplet lecons={lecons} moduleId={module.id} />}
 
       {tab === "synthese" &&
         synthese.map((c) => (
