@@ -30,6 +30,14 @@ export type Example = {
   position: number;
 };
 
+export type Lecon = {
+  id: string;
+  module_id: string;
+  title: string;
+  body: string;
+  position: number;
+};
+
 export type QuizQuestion = {
   id: string;
   module_id: string;

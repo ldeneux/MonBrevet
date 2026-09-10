@@ -13,6 +13,12 @@ sauvegarder sa progression (cours lus, meilleurs scores) sans compte à
 créer, sans email, et sans tableau de bord parent — personne d'autre
 que l'appareil utilisé n'a accès à cette progression.
 
+Chaque module a 4 onglets :
+- **Cours** : le cours complet façon manuel, notion par notion
+- **Synthèse** : les points clés en couleur (définition / méthode / piège / à retenir)
+- **Exemples** : des exercices résolus pas à pas
+- **Quiz** : QCM (chronométré pour les automatismes)
+
 ## 1. Configurer Supabase
 
 1. Dans ton projet Supabase → **SQL Editor** → New query.
@@ -55,11 +61,11 @@ L'appli tourne sur http://localhost:3000
 ## 4. Ajouter les prochaines matières
 
 Pour ajouter un module (Français, Histoire-Géo-EMC, Sciences...), il
-suffit d'insérer des lignes dans les tables `modules`, `cours_sections`,
-`examples` et `quiz_questions` — aucune modification de code n'est
-nécessaire, l'interface est entièrement pilotée par les données. Un
-exemple complet de ce format se trouve dans `supabase/schema.sql`
-pour le module Maths.
+suffit d'insérer des lignes dans les tables `modules`, `lecons`,
+`cours_sections`, `examples` et `quiz_questions` — aucune modification
+de code n'est nécessaire, l'interface est entièrement pilotée par les
+données. Un exemple complet de ce format se trouve dans
+`supabase/schema.sql` pour le module Maths.
 
 Pour les sujets d'annales (examens complets), la table `annales` est
 prête à recevoir un titre, une année et un lien vers un PDF stocké

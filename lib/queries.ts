@@ -1,5 +1,5 @@
 import { supabase } from "./supabaseClient";
-import { CoursSection, Example, Module, QuizQuestion, Subject } from "./types";
+import { CoursSection, Example, Lecon, Module, QuizQuestion, Subject } from "./types";
 
 export async function getSubjects(): Promise<Subject[]> {
   const { data, error } = await supabase
@@ -28,6 +28,16 @@ export async function getModule(moduleId: string): Promise<Module | null> {
     .single();
   if (error) return null;
   return data;
+}
+
+export async function getLecons(moduleId: string): Promise<Lecon[]> {
+  const { data, error } = await supabase
+    .from("lecons")
+    .select("*")
+    .eq("module_id", moduleId)
+    .order("position");
+  if (error) throw error;
+  return data ?? [];
 }
 
 export async function getCoursSections(moduleId: string): Promise<CoursSection[]> {

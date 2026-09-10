@@ -241,6 +241,34 @@ a {
   color: var(--retenir);
 }
 
+.lesson-section {
+  margin-bottom: 34px;
+}
+.lesson-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0 0 12px;
+}
+.lesson-body p {
+  margin: 0 0 14px;
+  line-height: 1.75;
+  font-size: 0.97rem;
+  color: var(--ink);
+}
+.lesson-body ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.lesson-body li {
+  margin-bottom: 7px;
+  line-height: 1.6;
+  font-size: 0.97rem;
+}
+.lesson-body strong {
+  color: var(--brand);
+}
+
 .example-card {
   background: var(--surface);
   border: 1px solid var(--border);

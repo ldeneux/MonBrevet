@@ -6,12 +6,13 @@ import ModuleContent from "@/components/ModuleContent";
 import {
   getCoursSections,
   getExamples,
+  getLecons,
   getModule,
   getModules,
   getQuizQuestions,
   getSubjects,
 } from "@/lib/queries";
-import { CoursSection, Example, Module, QuizQuestion, Subject } from "@/lib/types";
+import { CoursSection, Example, Lecon, Module, QuizQuestion, Subject } from "@/lib/types";
 
 export default function ModulePage({
   params,
@@ -21,7 +22,8 @@ export default function ModulePage({
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [modules, setModules] = useState<Module[]>([]);
   const [current, setCurrent] = useState<Module | null>(null);
-  const [cours, setCours] = useState<CoursSection[]>([]);
+  const [lecons, setLecons] = useState<Lecon[]>([]);
+  const [synthese, setSynthese] = useState<CoursSection[]>([]);
   const [examples, setExamples] = useState<Example[]>([]);
   const [quiz, setQuiz] = useState<QuizQuestion[]>([]);
   const [loading, setLoading] = useState(true);
@@ -32,15 +34,17 @@ export default function ModulePage({
       getSubjects(),
       getModules(params.subject),
       getModule(params.module),
+      getLecons(params.module),
       getCoursSections(params.module),
       getExamples(params.module),
       getQuizQuestions(params.module),
     ])
-      .then(([s, m, cur, c, ex, q]) => {
+      .then(([s, m, cur, lec, c, ex, q]) => {
         setSubjects(s);
         setModules(m);
         setCurrent(cur);
-        setCours(c);
+        setLecons(lec);
+        setSynthese(c);
         setExamples(ex);
         setQuiz(q);
       })
@@ -60,7 +64,7 @@ export default function ModulePage({
           <p className="loading">Chargement…</p>
         </div>
       ) : (
-        <ModuleContent module={current} cours={cours} examples={examples} quiz={quiz} />
+        <ModuleContent module={current} lecons={lecons} synthese={synthese} examples={examples} quiz={quiz} />
       )}
     </div>
   );

@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CoursSection, Example, Module, QuizQuestion } from "@/lib/types";
+import { CoursSection, Example, Lecon, Module, QuizQuestion } from "@/lib/types";
 import { ensureAnonymousSession } from "@/lib/supabaseClient";
 import { markCoursRead } from "@/lib/queries";
 import QuizView from "./QuizView";
+import CoursComplet from "./CoursComplet";
 
 const LABELS: Record<string, string> = {
   def: "Définition",
@@ -15,19 +16,21 @@ const LABELS: Record<string, string> = {
 
 export default function ModuleContent({
   module,
-  cours,
+  lecons,
+  synthese,
   examples,
   quiz,
 }: {
   module: Module;
-  cours: CoursSection[];
+  lecons: Lecon[];
+  synthese: CoursSection[];
   examples: Example[];
   quiz: QuizQuestion[];
 }) {
-  const [tab, setTab] = useState<"cours" | "exemples" | "quiz">("cours");
+  const [tab, setTab] = useState<"cours" | "synthese" | "exemples" | "quiz">("cours");
 
   useEffect(() => {
-    if (tab === "cours") {
+    if (tab === "cours" || tab === "synthese") {
       (async () => {
         const session = await ensureAnonymousSession();
         if (session) await markCoursRead(session.user.id, module.id);
@@ -45,6 +48,9 @@ export default function ModuleContent({
         <button className={`tab ${tab === "cours" ? "active" : ""}`} onClick={() => setTab("cours")}>
           Cours
         </button>
+        <button className={`tab ${tab === "synthese" ? "active" : ""}`} onClick={() => setTab("synthese")}>
+          Synthèse
+        </button>
         <button className={`tab ${tab === "exemples" ? "active" : ""}`} onClick={() => setTab("exemples")}>
           Exemples
         </button>
@@ -53,8 +59,10 @@ export default function ModuleContent({
         </button>
       </div>
 
-      {tab === "cours" &&
-        cours.map((c) => (
+      {tab === "cours" && <CoursComplet lecons={lecons} />}
+
+      {tab === "synthese" &&
+        synthese.map((c) => (
           <div key={c.id} className={`callout ${c.type}`}>
             <span className="label">{LABELS[c.type]}</span>
             {c.content}
