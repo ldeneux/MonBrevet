@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // Céleste tourne sur Groq (https://console.groq.com), qui héberge des modèles
-// open-source (Llama) gratuitement : pas de carte bancaire, ~14 400 requêtes/jour
-// sur le tier gratuit — largement suffisant pour ce type d'usage.
-const MODEL = "llama-3.3-70b-versatile";
+// open-source gratuitement : pas de carte bancaire, ~14 400 requêtes/jour sur
+// le tier gratuit — largement suffisant pour ce type d'usage.
+// (llama-3.3-70b-versatile a été retiré par Groq le 16/08/2026 ; gpt-oss-120b
+// est son remplacement recommandé, avec les mêmes performances/gratuité.)
+const MODEL = "openai/gpt-oss-120b";
 
 const SYSTEM_PROMPT = `Tu es Céleste, une petite comète espiègle et bienveillante, mascotte de l'application "Prépa Brevet" qui aide les collégiens à réviser le brevet des collèges (programmes 2026).
 
