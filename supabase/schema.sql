@@ -216,9 +216,9 @@ Simplifier une fraction consiste à diviser le numérateur et le dénominateur p
 
 Trois règles permettent de manipuler les puissances sans tout redévelopper :
 
-- a^m × a^n = a^(m+n) : on additionne les exposants
-- a^m ÷ a^n = a^(m−n) : on soustrait les exposants
-- (a^m)^n = a^(m×n) : on multiplie les exposants
+= a^m × a^n = a^(m+n) : on additionne les exposants
+= a^m ÷ a^n = a^(m−n) : on soustrait les exposants
+= (a^m)^n = a^(m×n) : on multiplie les exposants
 
 Attention à ne pas confondre a^(-n), qui vaut 1/a^n, avec −a^n, qui est négatif.$$, 3),
 ('nombres', $$Calcul littéral : développer et factoriser$$, $$Une expression littérale contient une ou plusieurs lettres, appelées variables, qui représentent des nombres inconnus ou variables.
@@ -229,9 +229,9 @@ Factoriser, c'est l'opération inverse : transformer une somme en produit, en re
 
 Trois identités remarquables sont à connaître par cœur :
 
-- (a+b)² = a² + 2ab + b²
-- (a−b)² = a² − 2ab + b²
-- (a+b)(a−b) = a² − b²
+= (a+b)² = a² + 2ab + b²
+= (a−b)² = a² − 2ab + b²
+= (a+b)(a−b) = a² − b²
 
 Elles permettent de développer ou de factoriser très rapidement certaines expressions.$$, 4);
 
@@ -258,18 +258,18 @@ Dans un triangle rectangle, pour un angle aigu donné, on distingue trois côté
 
 Trois formules, résumées par le mot **SOHCAHTOA**, relient l'angle à ces côtés :
 
-- cos(angle) = adjacent / hypoténuse
-- sin(angle) = opposé / hypoténuse
-- tan(angle) = opposé / adjacent
+= cos(angle) = adjacent / hypoténuse
+= sin(angle) = opposé / hypoténuse
+= tan(angle) = opposé / adjacent
 
 Pour calculer une longueur, on isole la longueur cherchée dans la formule correspondante. Pour calculer un angle à partir de deux longueurs connues, on utilise les fonctions inverses (cos⁻¹, sin⁻¹, tan⁻¹) de la calculatrice.$$, 3),
 ('geometrie', $$Aires et volumes$$, $$Le volume d'un solide se calcule avec une formule qui dépend de sa forme. Les formules à connaître par cœur pour le brevet sont :
 
-- Cube de côté c : V = c³
-- Pavé droit de dimensions L, l, h : V = L × l × h
-- Cylindre de rayon r et hauteur h : V = π × r² × h
-- Pyramide ou cône, de base d'aire B et de hauteur h : V = (1/3) × B × h
-- Sphère de rayon r : V = (4/3) × π × r³
+= Cube de côté c : V = c³
+= Pavé droit de dimensions L, l, h : V = L × l × h
+= Cylindre de rayon r et hauteur h : V = π × r² × h
+= Pyramide ou cône, de base d'aire B et de hauteur h : V = (1/3) × B × h
+= Sphère de rayon r : V = (4/3) × π × r³
 
 Un piège fréquent : le volume s'exprime toujours en unités « au cube » (cm³, m³...), jamais en unités simples ou au carré. Il faut aussi veiller à ce que toutes les longueurs utilisées dans une même formule soient exprimées dans la même unité avant de calculer.$$, 4);
 
@@ -288,8 +288,8 @@ Les pourcentages sont une application directe de la proportionnalité. Calculer 
 
 Pour une évolution, on utilise un coefficient multiplicateur :
 
-- Augmenter de t % revient à multiplier par (1 + t/100)
-- Diminuer de t % revient à multiplier par (1 − t/100)
+= Augmenter de t % revient à multiplier par (1 + t/100)
+= Diminuer de t % revient à multiplier par (1 − t/100)
 
 Ce coefficient multiplicateur permet d'obtenir directement la valeur finale, sans calculer d'abord le montant de l'évolution.$$, 2),
 ('fonctions', $$Vitesse moyenne et grandeurs quotients$$, $$La vitesse moyenne est un exemple de grandeur quotient : elle se calcule en divisant une distance parcourue par la durée du trajet : vitesse = distance ÷ temps.

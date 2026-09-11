@@ -17,6 +17,20 @@ function renderBody(body: string) {
   const blocks = body.split(/\n\n+/);
   return blocks.map((block, i) => {
     const trimmed = block.trim();
+    if (trimmed.startsWith("= ")) {
+      // Bloc de formules : une par ligne, centrée, sans puce (évite la confusion
+      // entre le tiret de liste et un signe moins dans une formule).
+      const lines = trimmed.split("\n").map((l) => l.replace(/^= /, ""));
+      return (
+        <div className="formula-block" key={i}>
+          {lines.map((l, j) => (
+            <p className="formula-line" key={j}>
+              {renderInline(l, `${i}-${j}`)}
+            </p>
+          ))}
+        </div>
+      );
+    }
     if (trimmed.startsWith("- ")) {
       const items = trimmed.split("\n").map((l) => l.replace(/^- /, ""));
       return (

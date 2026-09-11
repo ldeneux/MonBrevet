@@ -3,9 +3,9 @@
 Appli de révision/entraînement pour le brevet des collèges.
 Next.js (App Router) + Supabase. Modules complets : Maths (Automatismes,
 Nombres et calculs, Géométrie, Fonctions et proportionnalité,
-Statistiques et probabilités, Algorithmique) et Sciences (Physique-Chimie,
-SVT, Technologie — 11 modules). Français et Histoire-Géo-EMC sont déjà
-présents dans le menu, prêts à recevoir leurs modules sur le même modèle.
+Statistiques et probabilités, Algorithmique), Sciences (Physique-Chimie,
+SVT, Technologie — 11 modules) et Histoire-Géo-EMC (8 modules). Français
+est déjà présent dans le menu, prêt à recevoir ses modules sur le même modèle.
 
 Aucune authentification par email/mot de passe : chaque visiteur reçoit
 automatiquement une session anonyme (Supabase Auth), ce qui permet de
@@ -30,10 +30,13 @@ Chaque module a 4 onglets :
    il insère les 11 modules de Sciences (Physique-Chimie, SVT,
    Technologie), chacun avec son cours complet, sa synthèse en
    couleur, ses exemples et son quiz.
-4. Va dans **Authentication → Providers → Anonymous Sign-Ins** et
+4. Nouvelle requête → colle le contenu de `supabase/histoire-geo-emc.sql`
+   et clique **Run**. Additif également : 8 modules (Histoire,
+   Géographie, EMC).
+5. Va dans **Authentication → Providers → Anonymous Sign-Ins** et
    active l'option (elle est désactivée par défaut). C'est ce qui
    permet à l'appli de créer une session sans email ni mot de passe.
-5. Récupère tes clés dans **Project Settings → API** :
+6. Récupère tes clés dans **Project Settings → API** :
    - `Project URL`
    - `anon public` key
 

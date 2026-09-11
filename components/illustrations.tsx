@@ -30,12 +30,19 @@ const labelStyle = {
 
 export function IllustrationPythagore() {
   return (
-    <svg viewBox="0 0 400 240" width="100%">
-      <polygon points="70,190 300,190 70,60" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="2.5" strokeLinejoin="round" />
-      <rect x="70" y="170" width="20" height="20" fill="none" stroke={PALETTE.ink} strokeWidth="2" />
-      <text x="175" y="212" style={labelStyle} textAnchor="middle">côté a</text>
-      <text x="40" y="130" style={labelStyle} textAnchor="middle">côté b</text>
-      <text x="200" y="115" style={labelStyle} textAnchor="middle" fill={PALETTE.pinkDark}>hypoténuse</text>
+    <svg viewBox="0 0 400 250" width="100%">
+      <polygon points="70,195 300,195 70,60" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="2.5" strokeLinejoin="round" />
+      <rect x="70" y="175" width="20" height="20" fill="none" stroke={PALETTE.ink} strokeWidth="2" />
+      <circle cx="70" cy="195" r="4" fill={PALETTE.ink} />
+      <circle cx="300" cy="195" r="4" fill={PALETTE.ink} />
+      <circle cx="70" cy="60" r="4" fill={PALETTE.ink} />
+      <text x="52" y="218" style={labelStyle} textAnchor="middle">A</text>
+      <text x="318" y="200" style={labelStyle} textAnchor="middle">C</text>
+      <text x="52" y="55" style={labelStyle} textAnchor="middle">B</text>
+      <text x="185" y="218" style={labelStyle} textAnchor="middle">AC</text>
+      <text x="38" y="130" style={labelStyle} textAnchor="middle">AB</text>
+      <text x="200" y="118" style={labelStyle} textAnchor="middle" fill={PALETTE.pinkDark}>BC</text>
+      <text x="200" y="133" style={{ ...labelStyle, fontSize: 11, fontWeight: 500 }} textAnchor="middle" fill={PALETTE.pinkDark}>(hypoténuse)</text>
     </svg>
   );
 }
@@ -71,14 +78,16 @@ export function IllustrationTrigo() {
 }
 
 export function IllustrationVolumes() {
+  const formulaStyle = { ...labelStyle, fontSize: 11, fontWeight: 500 as const, fill: PALETTE.inkLight };
   return (
-    <svg viewBox="0 0 400 200" width="100%">
+    <svg viewBox="0 0 420 235" width="100%">
       {/* cube */}
-      <g transform="translate(20,60)">
+      <g transform="translate(15,60)">
         <polygon points="0,60 50,60 50,10 0,10" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="2" />
         <polygon points="0,10 15,0 65,0 50,10" fill={PALETTE.blueDark} stroke={PALETTE.ink} strokeWidth="2" />
         <polygon points="50,10 65,0 65,50 50,60" fill={PALETTE.blueDark} stroke={PALETTE.ink} strokeWidth="2" opacity="0.7" />
-        <text x="25" y="95" style={labelStyle} textAnchor="middle">cube</text>
+        <text x="30" y="95" style={labelStyle} textAnchor="middle">cube</text>
+        <text x="30" y="112" style={formulaStyle} textAnchor="middle">V = c³</text>
       </g>
       {/* cylinder */}
       <g transform="translate(120,55)">
@@ -86,18 +95,21 @@ export function IllustrationVolumes() {
         <rect x="2" y="10" width="56" height="55" fill={PALETTE.green} stroke={PALETTE.ink} strokeWidth="2" />
         <ellipse cx="30" cy="65" rx="28" ry="10" fill={PALETTE.greenDark} stroke={PALETTE.ink} strokeWidth="2" />
         <text x="30" y="98" style={labelStyle} textAnchor="middle">cylindre</text>
+        <text x="30" y="115" style={formulaStyle} textAnchor="middle">V = π×r²×h</text>
       </g>
       {/* pyramid */}
-      <g transform="translate(220,55)">
+      <g transform="translate(225,55)">
         <polygon points="30,0 60,60 0,60" fill={PALETTE.yellow} stroke={PALETTE.ink} strokeWidth="2" strokeLinejoin="round" />
         <line x1="30" y1="0" x2="30" y2="60" stroke={PALETTE.yellowDark} strokeWidth="2" />
         <text x="30" y="93" style={labelStyle} textAnchor="middle">pyramide</text>
+        <text x="30" y="110" style={formulaStyle} textAnchor="middle">V = ⅓×B×h</text>
       </g>
       {/* sphere */}
-      <g transform="translate(310,55)">
+      <g transform="translate(320,55)">
         <circle cx="30" cy="35" r="30" fill={PALETTE.pink} stroke={PALETTE.ink} strokeWidth="2" />
         <ellipse cx="30" cy="35" rx="30" ry="10" fill="none" stroke={PALETTE.pinkDark} strokeWidth="1.5" opacity="0.6" />
         <text x="30" y="93" style={labelStyle} textAnchor="middle">sphère</text>
+        <text x="30" y="110" style={formulaStyle} textAnchor="middle">V = 4/3×π×r³</text>
       </g>
     </svg>
   );
@@ -107,19 +119,19 @@ export function IllustrationVolumes() {
 
 export function IllustrationAtome() {
   return (
-    <svg viewBox="0 0 400 240" width="100%">
-      <ellipse cx="200" cy="120" rx="150" ry="55" fill="none" stroke={PALETTE.blueDark} strokeWidth="2" transform="rotate(15 200 120)" />
-      <ellipse cx="200" cy="120" rx="150" ry="55" fill="none" stroke={PALETTE.greenDark} strokeWidth="2" transform="rotate(-15 200 120)" />
-      <ellipse cx="200" cy="120" rx="150" ry="55" fill="none" stroke={PALETTE.purpleDark} strokeWidth="2" transform="rotate(90 200 120)" />
-      <circle cx="188" cy="112" r="10" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="1.5" />
-      <circle cx="205" cy="108" r="10" fill={PALETTE.pink} stroke={PALETTE.ink} strokeWidth="1.5" />
-      <circle cx="196" cy="128" r="10" fill={PALETTE.pink} stroke={PALETTE.ink} strokeWidth="1.5" />
-      <circle cx="213" cy="124" r="10" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="1.5" />
-      <circle cx="50" cy="80" r="6" fill={PALETTE.orangeDark} />
-      <circle cx="345" cy="150" r="6" fill={PALETTE.orangeDark} />
-      <circle cx="200" cy="35" r="6" fill={PALETTE.orangeDark} />
-      <text x="365" y="150" style={labelStyle}>électron</text>
-      <text x="225" y="155" style={labelStyle}>noyau</text>
+    <svg viewBox="0 0 480 300" width="100%">
+      <ellipse cx="240" cy="150" rx="130" ry="48" fill="none" stroke={PALETTE.blueDark} strokeWidth="2" transform="rotate(20 240 150)" />
+      <ellipse cx="240" cy="150" rx="130" ry="48" fill="none" stroke={PALETTE.greenDark} strokeWidth="2" transform="rotate(-20 240 150)" />
+      <ellipse cx="240" cy="150" rx="130" ry="48" fill="none" stroke={PALETTE.purpleDark} strokeWidth="2" transform="rotate(90 240 150)" />
+      <circle cx="228" cy="141" r="11" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="1.5" />
+      <circle cx="248" cy="137" r="11" fill={PALETTE.pink} stroke={PALETTE.ink} strokeWidth="1.5" />
+      <circle cx="235" cy="159" r="11" fill={PALETTE.pink} stroke={PALETTE.ink} strokeWidth="1.5" />
+      <circle cx="255" cy="154" r="11" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="1.5" />
+      <circle cx="90" cy="70" r="6" fill={PALETTE.orangeDark} />
+      <circle cx="390" cy="95" r="6" fill={PALETTE.orangeDark} />
+      <circle cx="300" cy="265" r="6" fill={PALETTE.orangeDark} />
+      <text x="102" y="66" style={labelStyle}>électron</text>
+      <text x="275" y="200" style={labelStyle}>noyau</text>
     </svg>
   );
 }
@@ -221,7 +233,7 @@ export function IllustrationConversions() {
 
 export function IllustrationPuissances() {
   return (
-    <svg viewBox="0 0 400 180" width="100%">
+    <svg viewBox="0 0 430 180" width="100%">
       <rect x="30" y="120" width="30" height="30" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="2" />
       <text x="45" y="165" style={labelStyle} textAnchor="middle">a¹</text>
 
@@ -242,7 +254,7 @@ export function IllustrationPuissances() {
 
 export function IllustrationIdentitesRemarquables() {
   return (
-    <svg viewBox="0 0 400 260" width="100%">
+    <svg viewBox="0 0 400 280" width="100%">
       <rect x="60" y="20" width="140" height="140" fill={PALETTE.blue} stroke={PALETTE.ink} strokeWidth="2" />
       <rect x="200" y="20" width="80" height="140" fill={PALETTE.green} stroke={PALETTE.ink} strokeWidth="2" />
       <rect x="60" y="160" width="140" height="80" fill={PALETTE.yellow} stroke={PALETTE.ink} strokeWidth="2" />
@@ -251,7 +263,7 @@ export function IllustrationIdentitesRemarquables() {
       <text x="240" y="95" style={labelStyle} textAnchor="middle">ab</text>
       <text x="130" y="205" style={labelStyle} textAnchor="middle">ab</text>
       <text x="240" y="205" style={labelStyle} textAnchor="middle">b²</text>
-      <text x="170" y="253" style={labelStyle} textAnchor="middle" fill={PALETTE.pinkDark}>(a+b)² = a² + 2ab + b²</text>
+      <text x="170" y="268" style={labelStyle} textAnchor="middle" fill={PALETTE.pinkDark}>(a+b)² = a² + 2ab + b²</text>
     </svg>
   );
 }
@@ -260,7 +272,7 @@ export function IllustrationIdentitesRemarquables() {
 
 export function IllustrationFonctionAffine() {
   return (
-    <svg viewBox="0 0 400 240" width="100%">
+    <svg viewBox="0 0 400 255" width="100%">
       <line x1="40" y1="200" x2="380" y2="200" stroke={PALETTE.ink} strokeWidth="2" />
       <line x1="60" y1="20" x2="60" y2="220" stroke={PALETTE.ink} strokeWidth="2" />
       <line x1="60" y1="160" x2="320" y2="50" stroke={PALETTE.pinkDark} strokeWidth="3" strokeLinecap="round" />
@@ -293,7 +305,7 @@ export function IllustrationMoyenneMediane() {
   const points = [40, 90, 130, 180, 240, 300, 340];
   const median = 180;
   return (
-    <svg viewBox="0 0 380 100" width="100%">
+    <svg viewBox="0 0 380 115" width="100%">
       <line x1="20" y1="60" x2="360" y2="60" stroke={PALETTE.ink} strokeWidth="2" />
       {points.map((x, i) => (
         <circle key={i} cx={x} cy="60" r="8" fill={x === median ? PALETTE.pinkDark : PALETTE.blue} stroke={PALETTE.ink} strokeWidth="1.5" />
@@ -423,7 +435,7 @@ export function IllustrationHeredite() {
 
 export function IllustrationArcReflexe() {
   return (
-    <svg viewBox="0 0 300 220" width="100%">
+    <svg viewBox="0 0 330 220" width="100%">
       <circle cx="150" cy="40" r="20" fill={PALETTE.orange} stroke={PALETTE.ink} strokeWidth="2" />
       <line x1="150" y1="60" x2="150" y2="150" stroke={PALETTE.ink} strokeWidth="6" strokeLinecap="round" />
       <line x1="150" y1="80" x2="90" y2="130" stroke={PALETTE.ink} strokeWidth="5" strokeLinecap="round" />
@@ -438,13 +450,13 @@ export function IllustrationArcReflexe() {
 export function IllustrationSelectionNaturelle() {
   const colors = [PALETTE.blue, PALETTE.blue, PALETTE.purple, PALETTE.purple, PALETTE.pink, PALETTE.pinkDark];
   return (
-    <svg viewBox="0 0 400 120" width="100%">
+    <svg viewBox="0 0 430 120" width="100%">
       {colors.map((c, i) => (
         <ellipse key={i} cx={40 + i * 65} cy="60" rx="24" ry="16" fill={c} stroke={PALETTE.ink} strokeWidth="2" />
       ))}
       <line x1="20" y1="100" x2="380" y2="100" stroke={PALETTE.ink} strokeWidth="1.5" strokeDasharray="4 3" />
       <text x="40" y="115" style={labelStyle} textAnchor="middle">génération 1</text>
-      <text x="360" y="115" style={labelStyle} textAnchor="middle">génération n</text>
+      <text x="370" y="115" style={labelStyle} textAnchor="middle">génération n</text>
     </svg>
   );
 }
