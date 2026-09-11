@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CelesteChat from "@/components/CelesteChat";
 
 export const metadata: Metadata = {
   title: "Prépa Brevet",
@@ -20,7 +21,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CelesteChat />
+      </body>
     </html>
   );
 }

@@ -19,6 +19,17 @@ Chaque module a 4 onglets :
 - **Exemples** : des exercices résolus pas à pas
 - **Quiz** : QCM (chronométré pour les automatismes)
 
+**Céleste**, la mascotte-comète, est disponible sur toutes les pages (bouton
+en bas à droite). Elle explique une notion si l'élève bloque, encourage, et
+corrige/explique les quiz — toujours recentrée sur le programme du brevet
+(elle décline poliment toute question hors sujet). Elle connaît
+automatiquement le module que l'élève est en train de consulter. Aucune
+conversation n'est enregistrée : c'est un espace d'aide immédiate, pas un
+outil de suivi.
+
+Elle tourne sur **Groq** (modèle Llama 3.3 70B), gratuit sans carte bancaire
+— voir `app/api/celeste/route.ts`.
+
 ## 1. Configurer Supabase
 
 1. Dans ton projet Supabase → **SQL Editor** → New query.
@@ -39,6 +50,9 @@ Chaque module a 4 onglets :
 6. Récupère tes clés dans **Project Settings → API** :
    - `Project URL`
    - `anon public` key
+7. Pour activer Céleste (gratuite), crée un compte sur
+   [console.groq.com](https://console.groq.com) → **API Keys** → crée une
+   clé. Aucune carte bancaire n'est demandée.
 
 ## 2. Configurer le projet en local
 
@@ -46,7 +60,8 @@ Chaque module a 4 onglets :
 cp .env.local.example .env.local
 ```
 
-Remplis `.env.local` avec les deux valeurs récupérées à l'étape 1.
+Remplis `.env.local` avec les trois valeurs récupérées à l'étape 1
+(Supabase URL, Supabase anon key, clé API Groq).
 
 ```bash
 npm install
@@ -61,9 +76,10 @@ L'appli tourne sur http://localhost:3000
 2. Sur [vercel.com](https://vercel.com) → **Add New Project** → importe
    le dépôt.
 3. Dans les paramètres du projet Vercel → **Environment Variables**,
-   ajoute les deux mêmes variables que dans `.env.local` :
+   ajoute les trois mêmes variables que dans `.env.local` :
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `GROQ_API_KEY`
 4. Déploie.
 
 ## 4. Ajouter les prochaines matières
